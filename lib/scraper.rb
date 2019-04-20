@@ -20,30 +20,30 @@ class Scraper
     roster
   end
 
-  def self.scrape_profile_page(profile_url)
-    profile = Nokogiri::HTML(open(profile_url))
+  # def self.scrape_profile_page(profile_url)
+  #   profile = Nokogiri::HTML(open(profile_url))
     
-    student = {}
+  #   student = {}
     
-    links = profile.css("div.social-icon-container a").map {|e| e.attribute("href").value}
+  #   links = profile.css("div.social-icon-container a").map {|e| e.attribute("href").value}
     
-    links.each do |link|
-      if link.include?("linkedin")
-        student[:linkedin] = link
-      elsif link.include?("github")
-        student[:github] = link 
-      elsif link.include?("twitter")
-        student[:twitter] = link 
-      else 
-        student[:blog] = link
-      end   
-    end
+  #   links.each do |link|
+  #     if link.include?("linkedin")
+  #       student[:linkedin] = link
+  #     elsif link.include?("github")
+  #       student[:github] = link 
+  #     elsif link.include?("twitter")
+  #       student[:twitter] = link 
+  #     else 
+  #       student[:blog] = link
+  #     end   
+  #   end
     
-    student[:profile_quote] = profile.css(".profile-quote").text if profile_page.css(".profile-quote")
-    student[:bio] = profile.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
+  #   student[:profile_quote] = profile.css(".profile-quote").text if profile_page.css(".profile-quote")
+  #   student[:bio] = profile.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
     
-    student
-  end
+  #   student
+  # end
   
   def self.scrape_profile_page(profile_slug)
     student = {}
