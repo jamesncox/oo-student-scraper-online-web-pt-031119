@@ -45,10 +45,6 @@ class Scraper
     student
   end
 
-end
-
-    student
-  end
   
   # def self.scrape_profile_page(profile_slug)
   #   student = {}
